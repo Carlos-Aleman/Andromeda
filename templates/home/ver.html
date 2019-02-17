@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block title %} Andromeda {% endblock %}
+
+{% block content %}
+
+<style type="text/css">
+
+ul.menu{
+background:red;
+borde:3px;
+list-style:none;
+margin:0;
+padding:0;
+overflow:hidden;
+text-align:center;
+}
+ul.menu li{
+float:left;
+width:20%;
+}
+ui.menu a{
+color:red;
+display:block;
+text-decoration:none;
+}
+ul.menu li a:hover{
+background:red;
+color:blue;
+}
+ul.menu {
+  clear: both;
+  float: left;
+  width: 100%;
+}
+ul.menu {
+  clear: both;
+  float: left;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul.menu li {
+   float: left;
+}
+ul.menu li a {
+  padding: .3em;
+  display: block;
+  text-decoration: none;
+  color: #333;
+  background: #F4F4F4;
+  border-top: 1px solid #7C7C7C;
+  border-right: 1px solid #7C7C7C;
+  border-bottom: 1px solid #9C9C9C;
+}
+
+
+</style>
+<h1 align="center">Andromeda</h1>
+<ul class="menu">
+<li><a href="{% url 'inicio' %}">Inicio</a></li>
+<li><a href="">Etiquetas</a></li>
+<li><a href="{% url 'final' %}">Finalizar Etiquetas</a></li>
+<li><a href="{% url 'crearE' %}">Crear Etiqueta</a></li>
+<li><a href="{% url 'search' %}">Buscar</a></li>
+</ul>
+
+<br>
+<br>
+<br>
+<br>
+
+<h2>Lista de etiquetas</h2>
+<table class="table table-striped">
+  <td>Numero nota</td>
+  <td>Nombre cliente</td>
+  <td>Telefono </td>
+  <td>Fecha de recibido </td>
+  <td>Equipo </td>
+  <td>Trabajo </td>
+  <td>Quien Trabajara El Equipo</td> 
+  <td>Prende </td>
+  <td>Tiene chip o Sd </td> 
+  <td>Apagado </td>
+  <td>Crack </td>
+  <td>Precio De La Reparacion</td>
+  <td>Descripcion Del Equipo</td>
+  <td></td>
+  <td>Acciones</td>
+  <td></td>
+
+{% for etiquetas in objects %}
+<tr>
+  <td>{{etiquetas.Numero_nota}}</td>
+  <td>{{etiquetas.Nombre_cliente}}</td>
+  <td>{{etiquetas.Telefono}}</td>
+  <td>{{etiquetas.Fecha_recibido}} </td>
+  <td>{{etiquetas.Equipo}}</td>
+  <td>{{etiquetas.Trabajo}}</td>
+  <td>{{etiquetas.Quien_Trabajara_El_Equipo}}</td> 
+  <td>{{etiquetas.Prende}} </td>
+  <td>{{etiquetas.Tiene_chip_o_Sd}} </td> 
+  <td>{{etiquetas.Entrego_Apagado}}</td>
+  <td>{{etiquetas.Crack}}</td>
+  <td>{{etiquetas.Precio_Reparacion}}</td>
+  <td>{{etiquetas.Descripcion_Del_Equipo}}</td>
+<td></td>
+<td><a href="{% url 'sacarA' etiquetas.id %}" class="btn btn-link">Imprimir Para Android</a></td>
+<td><a href="{% url 'updateE' etiquetas.id %}" class="btn btn-link">Actualizar</a></td>
+
+
+</tr>
+{% endfor %}
+
+
+</table>
+
+
+{% endblock %}
+

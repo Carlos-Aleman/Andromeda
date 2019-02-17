@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %} Andromeda {% endblock %}
+
+{% block content %}
+
+<SCRIPT  language=JavaScript> 
+function go(){
+if (document.form.password.value=='andromeda' && document.form.login.value=='local'){ 
+        document.form.submit(); 
+    } 
+    else{ 
+         alert("Porfavor ingrese, nombre de usuario y contraseña correctos."); 
+    } 
+} 
+</SCRIPT> 
+
+<FORM name=form action="inicio">
+
+<P>Usuario:    <INPUT type=text name=login> 
+<P>Contraseña: <INPUT type=password name=password> 
+<INPUT onclick=go() type=button value=Acceder>
+
+</FORM> 
+</body>
+</html>
+
+
+{% endblock %}

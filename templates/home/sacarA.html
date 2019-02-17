@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+
+{% block title %}Imprimir{% endblock %}
+
+{% block content %}
+<style type="text/css">
+	#capa1{margin-top:10px;margin-left:50px;width:250px;height:35px;float:left;
+background-color:white;color:black;font-style:italic;clear:both}
+
+#capa2{margin-top:10px;margin-left:50px;width:250px;height:480px;
+background-color:white;color:black;float:left;font-style:palatino;clear:both}
+
+#capa3{margin-top:10px;margin-left:50px;width:250px;height:480px;
+background-color:white;color:black;float:left;font-style:palatino;clear:both}
+
+</style>
+
+<script type="text/javascript">
+	function printDiv(imp){
+		var contenido= document.getElementById(imp).innerHTML;
+		var contenidoOriginal= document.body.innerHTML;
+
+		document.body.innerHTML = contenido;
+
+		window.print();
+
+		document.body.innerHTML = contenidoOriginal;
+	}
+
+		function printDiv2(imp2){
+		var contenido= document.getElementById(imp2).innerHTML;
+		var contenidoOriginal= document.body.innerHTML;
+
+		document.body.innerHTML = contenido;
+
+		window.print();
+
+		document.body.innerHTML = contenidoOriginal;
+	}
+
+</script>
+
+<div id="capa1">
+
+	<input type="button" onclick="printDiv('imp')" value="Imprimir">
+	<input type="button" onclick="printDiv2('imp2')" value="Imprimir">
+
+</div>
+
+{% for etiquetas in objects %}
+			
+				<div id="imp">
+				<div id="capa2">
+				<label>Numero de nota:</label>{{ etiquetas.Numero_nota }}
+				<br>
+				<label>Nombre del cliente:</label>{{ etiquetas.Nombre_cliente }}
+				<br>
+				<label>Telefono:</label>{{ etiquetas.Telefono }}
+				<br>
+				<label>Fecha de recibido:</label>{{ etiquetas.Fecha_recibido }}
+				<br>
+				<label>Equipo:</label>{{ etiquetas.Equipo }}
+				<br>
+				<label>Trabajo:</label>{{ etiquetas.Trabajo }}
+				<br>
+				<label>Quien lo trabajara:</label>{{ etiquetas.Quien_Trabajara_El_Equipo }}
+				<br>
+				<label>--------------------------------------------</label>
+				<br>
+				<label>Prende:</label></label>{{ etiquetas.Prende }}
+				<br>
+				<label>Tiene chip o Sd:</label>{{ etiquetas.Tiene_chip_o_Sd }}
+				<br>
+				<label>Cel. Entregado apagado:</label>{{ etiquetas.Apagado }}
+				<br>
+				<label>Tiene crack:</label>{{ etiquetas.Crack }}
+				<br>
+				<label>Descripcion del equipo:</label><br>	{{ etiquetas.Descripcion_Del_Equipo }}
+			</div>
+		</div>
+		
+		{% endfor %}
+		<br>
+		<br>
+		<br>
+
+
+	
+{% for etiquetas in objects %}
+			
+				<div id="imp2">
+				<div id="capa3">
+				<label>Numero de nota:</label>{{ etiquetas.Numero_nota }}
+				<br>
+				<br>
+				<label>Numero de nota:</label>{{ etiquetas.Numero_nota }}
+				<br>
+				<br>
+				<label>Numero de nota:</label>{{ etiquetas.Numero_nota }}
+				<br>
+				<br>
+				<label>Numero de nota:</label>{{ etiquetas.Numero_nota }}
+				<br>
+				<br>
+				<label>Numero de nota:</label>{{ etiquetas.Numero_nota }}
+				<br>
+				<br>
+				<label>Numero de nota:</label>{{ etiquetas.Numero_nota }}
+				<br>
+				<br>
+			</div>
+		</div>
+		
+		{% endfor %}
+
+{% endblock %}

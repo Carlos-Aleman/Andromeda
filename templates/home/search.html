@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style type="text/css">
+	#capa1{margin-top:10px;margin-left:50px;width:250px;height:100px;float:left;
+background-color:white;color:black;font-style:italic;clear:both}
+
+#capa2{margin-top:0px;margin-left:50px;width:1150px;height:250px;
+background-color:silver;color:black;float:left;font-style:palatino;clear:both}
+</style>
+
+ <div id="capa1">
+ 	
+  <form method="get">
+    {{ filter.form.as_p }}
+    <center><button type="submit" class="btn btn-primary">Buscar Etiqueta</button></center>
+  </form>
+  <br>
+   <center><a href="{% url 'inicio' %}"><input type="submit" value="Salir" class="btn btn-primary"></a></center>
+  <br>
+
+ 
+
+ 	 <ul>
+ 	 	
+  {% for etiquetas in filter.qs %}
+
+				<label>Numero de nota:  </label><br>{{ etiquetas.Numero_nota }}
+				<br>
+				<label>Nombre del cliente:</label><br>{{ etiquetas.Nombre_cliente }}
+				<br>
+				<label>Telefono:</label><br>{{ etiquetas.Telefono }}
+				<br>
+				<label>Fecha de recibido:</label><br>{{ etiquetas.Fecha_recibido }}
+				<br>
+				<label>Equipo:</label><br>{{ etiquetas.Equipo }}
+				<br>
+				<label>Trabajo:</label><br>{{ etiquetas.Trabajo }}
+				<br>
+				<label>--------------------------------------------------</label>
+				<br>
+			
+		{% endfor %}
+
+ </div>
+
+{% endblock %}
